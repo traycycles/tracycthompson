@@ -1,0 +1,221 @@
+/***********
+GENERAL
+***********/
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#wrapper {
+    max-width: 940px;
+    margin: 0 auto; /*centered */
+    padding: 0 5%;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;  /* image takes up 100% of parent element */
+}
+
+h3{
+    margin: 0 0 1em 0;
+}
+
+
+/***********
+HEADING
+***********/
+
+header{
+    float: left;
+    margin: 0 0 30px 0;
+    padding: 5px 0 0 0; /* start at top and go clockwise.. top right bottom left */
+    width: 100% /* since floated element, there was no specific width */
+}
+
+#logo{
+    text-align: center;
+    margin: 0;
+}
+
+h1{
+    font-family: 'Changa One', sans-serif;
+    margin: 15px 0;
+    font-size: 1.75em;
+    font-weight:normal;
+    line-height: 0.8em;
+}
+
+h2{
+    font-size: 0.75em;
+    margin: -5px 0 0; /* top... pulls element closer to those above */
+    font-weight: normal;
+}
+
+
+/*************
+NAVIGATION
+*************/
+
+nav{
+    text-align:center;
+    padding:10px 0;
+    margin: 20px 0 0;
+}
+
+nav ul{
+    list-style:none;
+    margin:0 10px;
+    padding:0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a{
+    font-weight: 800;
+    padding: 15px 10px;
+}
+
+
+
+/*************
+FOOTER
+*************/
+
+footer{
+    font-size: 0.75em;
+    text-align: center;
+    clear:both;
+    padding-top: 50px;
+    color: #ccc;
+}
+
+.social-icon{
+    margin: 0 5px;
+}
+
+
+/*************************
+PAGE: PORTFOLIO
+*************************/
+
+#gallery{
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+#gallery li{
+    float: left;
+    width: 45%; /* only takes up 45% of parent element*/
+    margin: 2.5%; /*margin takes up the remainder of the 10% divided between the images on each side 2.5 *4 = 10 */
+    background-color: #f5f5f5;
+    color: #bdc3c7; /* color of the linked text */
+}
+
+#gallery li a p{
+    margin: 0;
+    padding: 5%;
+    font-size: 0.75em;
+    color: #bdc3c7;
+}
+
+
+/*************************
+PAGE: ABOUT
+*************************/
+
+
+.profile-photo{
+    clear: both; /*firefox display*/
+    display: block; /* use auto margins to center element like the  wrapper div.  It will actually take up space on page instead of inline, with a width and height.  Allows for more flexibility on desktop layout */
+    max-width: 150px;
+    margin: 0 auto 30px;
+    border-radius: 100%;
+}
+
+
+
+
+/*************************
+PAGE: CONTACT
+*************************/
+.error{
+    color: maroon;
+    font-size: .8em;
+}
+
+.contact-info{
+    list-style:none;
+    padding:0;
+    margin:0;
+    font-size: 0.9em;
+}
+
+.contact-info a{
+    display:block; /*each element will take up space*/
+    min-height:20px; /*minimum height they will be visible */
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    padding: 0 0 0 30px;
+    margin: 0 0 10px;
+}
+
+/*.contact-info li.phone a{*/
+    /*background-image: url('../image/phone.png');*/
+/*}*/
+
+/*.contact-info li.mail a{*/
+    /*background-image: url('../image/mail.png');*/
+/*}*/
+/*.contact-info li.twitter a{*/
+    /*background-image: url('../image/twitter.png');*/
+/*}*/
+
+/*************
+COLORS
+*************/
+
+
+/* site body */
+body{
+    background-color: #fff;
+    color: #999;
+}
+
+/*green header*/
+header{
+    background:lightskyblue;
+    border-color:  lightskyblue;
+}
+
+/* nav bg on mobile */
+nav{
+    background: lightskyblue;
+}
+
+/* logo text */
+h1, h2{
+    color: #fff;
+}
+
+/* links */
+a{
+    color: blue;
+}
+
+/* nav link */
+nav a, nav a:visited{ /*remain white even after visited*/
+    color: #fff;
+}
+
+/* selected nav link */
+nav a.selected, nav a:hover {
+    color:blue;
+}
+
