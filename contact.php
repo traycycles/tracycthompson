@@ -6,6 +6,8 @@
  * Time: 10:06 AM
  */
 include 'includes/header.php';
+#ini_set("error_reporting", E_ALL);
+#ini_set("display_errors", 1);
 
 $email = $subject= $message= "";
 $emailErr= $subjectErr= $messageErr= "";
@@ -37,7 +39,7 @@ function test_input($data){
     return $data;
 }
 
-print_r($body);
+#print_r($body['message']);
 ?>
 
 <section>
@@ -60,24 +62,25 @@ print_r($body);
 <?php
 include 'includes/connecttoaws.php';
 
-//$result = $client ->putObject(array(
-//    'Bucket'=> 'tracymail',
-//    'Key' => 'mail.txt',
-//    'Body' => $body
-//));
+// Aws sdk parameter
 $result = $client->sendEmail([
-    'Destination' => 'traymarkthompson@gmail.com',
+    'Destination' => [
+        'ToAddresses' =>['traymarkthompson@gmail.com']
+    ],
     'Message' => [
         'Body'=>[
             'Text' =>[
+                'Charset' =>'UTF-8',
                 'Data' => $body['message']
             ],
         ],
         'Subject' =>[
+            'Charset' =>'UTF-8',
             'Data' => $body['subject']
-        ]
+        ],
     ],
-    'ReplyToAddress' => $body['email']
+    'Source' => 'traymarkthompson@gmail.com'
 ]);
+
 
 include 'includes/footer.php' ?>
