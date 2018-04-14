@@ -17,11 +17,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Email is required";
     } else {
         $email = test_input($_POST["email"]);
+        //check for email well-formed
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $emailErr = "Invalid email format";
+        }
     }
     if (empty($_POST["subject"])) {
         $subjectErr = "Subject is required";
     } else {
         $subject = test_input($_POST["subject"]);
+        //check for letters and white spaces
+        if(!preg_match("/^[a-zA-Z ]*$/",$subject)){
+            $subjectErr = "Only letters and white space allowed";
+        }
     }
     if (empty($_POST["message"])) {
         $messageErr = "Message is required";
