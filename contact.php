@@ -71,24 +71,32 @@ function test_input($data){
 include 'includes/connecttoaws.php';
 
 // Aws sdk parameter
-$result = $client->sendEmail([
-    'Destination' => [
-        'ToAddresses' =>['traymarkthompson@gmail.com']
-    ],
-    'Message' => [
-        'Body'=>[
-            'Text' =>[
-                'Charset' =>'UTF-8',
-                'Data' => $body['message']
+try {
+    $result = $client->sendEmail([
+        'Destination' => [
+            'ToAddresses' => ['traymarkthompson@gmail.com']
+        ],
+        'Message' => [
+            'Body' => [
+                'Text' => [
+                    'Charset' => 'UTF-8',
+                    'Data' => $body['message']
+                ],
+            ],
+            'Subject' => [
+                'Charset' => 'UTF-8',
+                'Data' => $body['subject']
             ],
         ],
-        'Subject' =>[
-            'Charset' =>'UTF-8',
-            'Data' => $body['subject']
-        ],
-    ],
-    'Source' => 'traymarkthompson@gmail.com'
-]);
+        'Source' => 'traymarkthompson@gmail.com'
+    ]);
+    $messageId = $result->get('MessageId');
+    ?>
+    <br><br>Email sent!  Thanks and I'll get right back with you
+    <?php
 
+}catch(SesException $error){
+    echo("The email was not sent. Error message: ". $error->getAwsErrorMessage(). "\n");
+}
 
 include 'includes/footer.php' ?>
