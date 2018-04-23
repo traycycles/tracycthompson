@@ -88,7 +88,7 @@ try {
     ]);
     $messageId = $result->get('MessageId');
     ?>
-    <br><br>Email sent!  0.Thanks and I'll get right back with you
+    <br><br>Email sent!  Thanks and I'll get right back with you
     <?php
 
 }catch(SesException $error){
