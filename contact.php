@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tracy
- * Date: 4/10/2018
- * Time: 10:06 AM
- */
+$pageTitle = 'Tracy C. Thompson | Contact';
 include 'includes/header.php';
 #ini_set("error_reporting", E_ALL);
 #ini_set("display_errors", 1);
@@ -92,7 +87,7 @@ try {
     ]);
     $messageId = $result->get('MessageId');
     ?>
-    <br><br>Email sent!  Thanks and I'll get right back with you
+    <br><br>Email sent!  0.Thanks and I'll get right back with you
     <?php
 
 }catch(SesException $error){

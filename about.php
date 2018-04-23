@@ -1,11 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tracy
- * Date: 4/10/2018
- * Time: 10:05 AM
- */
-include 'includes/header.php' ?>
+$pageTitle = 'Tracy C. Thompson | About';
+include 'includes/header.php';
+?>
 <section>
     <img src="img/IMG_0743.jpg" alt="photo of Tracy Thompson" class="profile-photo">
     <h3>About</h3>
