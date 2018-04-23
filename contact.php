@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = test_input($_POST["message"]);
     }
     $body = array('email' => $email, 'subject' => $subject, 'message' => $message);
-
+    header("Location:contact.php?status=thanks");
 }
 
 function test_input($data){
@@ -48,51 +48,54 @@ function test_input($data){
 
 <section>
     <h3>Contact Me</h3>
-    <p>I'd love to discuss my current projects and what I am learning about now.  Please feel free to reach out.<br>
-        <span class="error">* All fields required</span></p>
+    <?php
+    if(isset($_GET["status"]) && $_GET["status"]=="thanks"){
+        echo "<br><br>Email sent!  Thanks and I'll get right back with you";
+    }else{
+        ?>
+        <p>I'd love to discuss my current projects and what I am learning about now. Please feel free to reach out.<br>
+            <span class="error">* All fields required</span></p>
 
-    <form id="contactForm" method="post" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
-        Email: <input type="email" name="email">
-        <span class="error">*<?= $emailErr ?></span>
-        <br><br>
-        Subject: <input type="text" name="subject">
-        <span class="error">*<?= $subjectErr ?></span>
-        <br><br>
-        Message:<br> <textarea rows="10" cols="100" name="message" form="contactForm"></textarea>
-        <span class="error">*<?= $messageErr ?></span>
-        <br><br>
-        <input type="submit" value="send">
-    </form></section>
-<?php
-include 'includes/connecttoaws.php';
+        <form id="contactForm" method="post" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
+            Email: <input type="email" name="email">
+            <span class="error">*<?= $emailErr ?></span>
+            <br><br>
+            Subject: <input type="text" name="subject">
+            <span class="error">*<?= $subjectErr ?></span>
+            <br><br>
+            Message:<br> <textarea rows="10" cols="100" name="message" form="contactForm"></textarea>
+            <span class="error">*<?= $messageErr ?></span>
+            <br><br>
+            <input type="submit" value="send">
+        </form>
+    </section>
+    <?php
+    include 'includes/connecttoaws.php';
 
-// Aws sdk parameter
-try {
-    $result = $client->sendEmail([
-        'Destination' => [
-            'ToAddresses' => ['traymarkthompson@gmail.com']
-        ],
-        'Message' => [
-            'Body' => [
-                'Text' => [
+    // Aws sdk parameter
+    try {
+        $result = $client->sendEmail([
+            'Destination' => [
+                'ToAddresses' => ['traymarkthompson@gmail.com']
+            ],
+            'Message' => [
+                'Body' => [
+                    'Text' => [
+                        'Charset' => 'UTF-8',
+                        'Data' => $body['message']
+                    ],
+                ],
+                'Subject' => [
                     'Charset' => 'UTF-8',
-                    'Data' => $body['message']
+                    'Data' => $body['subject']
                 ],
             ],
-            'Subject' => [
-                'Charset' => 'UTF-8',
-                'Data' => $body['subject']
-            ],
-        ],
-        'Source' => 'traymarkthompson@gmail.com'
-    ]);
-    $messageId = $result->get('MessageId');
-    ?>
-    <br><br>Email sent!  Thanks and I'll get right back with you
-    <?php
+            'Source' => 'traymarkthompson@gmail.com'
+        ]);
+        $messageId = $result->get('MessageId');
 
-}catch(SesException $error){
-    echo("The email was not sent. Error message: ". $error->getAwsErrorMessage(). "\n");
+    }catch (SesException $error) {
+        echo("The email was not sent. Error message: " . $error->getAwsErrorMessage() . "\n");
+    }
 }
-
 include 'includes/footer.php' ?>
