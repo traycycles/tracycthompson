@@ -1,5 +1,6 @@
 <?php
 $pageTitle = 'Tracy C. Thompson | Portfolio';
+$section = 'portfolio';
 include 'includes/header.php';
 
 
