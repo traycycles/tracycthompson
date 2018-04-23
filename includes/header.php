@@ -19,7 +19,7 @@
         <ul>
             <li><a href="index.php" class="<?php if ($section == 'portfolio'){echo 'selected';} ?>">Portfolio</a></li>
             <li><a href="about.php" class="<?php if($section == 'about'){echo 'selected';}?>">About</a></li>
-            <li><a href="contact.php" class="<?if ($section == 'conatct'){echo 'selected';} ?>">Contact</a></li>
+            <li><a href="contact.php" class="<?php if ($section == 'contact'){echo 'selected';} ?>">Contact</a></li>
         </ul>
     </nav>
 </header>

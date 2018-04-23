@@ -1,5 +1,6 @@
 <?php
 $pageTitle = 'Tracy C. Thompson | About';
+$section = 'about';
 include 'includes/header.php';
 ?>
 <section>
