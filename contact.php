@@ -7,6 +7,7 @@ include 'includes/header.php';
 
 $email = $subject= $message= "";
 $emailErr= $subjectErr= $messageErr= "";
+$honey = FALSE;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email"])) {
@@ -31,6 +32,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $messageErr = "Message is required";
     } else {
         $message = test_input($_POST["message"]);
+    }
+    if(!empty($_POST["contact_me_by_fax_only"]) && (bool) $_POST["contact_me_by_fax_only"] == TRUE){
+        $honey = TRUE;
+        header("Location:https//www.google.com");
+        exit();
     }
     $body = array('email' => $email, 'subject' => $subject, 'message' => $message);
     header("Location:contact.php?status=thanks");
@@ -66,6 +72,7 @@ function test_input($data){
             Message:<br> <textarea rows="10" cols="100" name="message" form="contactForm"></textarea>
             <span class="error">*<?= $messageErr ?></span>
             <br><br>
+            <input type="checkbox" name="contact_me_by_fax_only" value="1" style="display: none !important" tabindex="-1" autocomplete="nope">
             <input type="submit" value="send">
         </form>
     </section>
@@ -95,7 +102,7 @@ function test_input($data){
         $messageId = $result->get('MessageId');
 
     }catch (SesException $error) {
-        echo("The email was not sent. Error message: " . $error->getAwsErrorMessage() . "\n");
+        echo("The email was not sent. Error message: " . $error->getAwsErrorMessage() . "</br>");
     }
 }
 include 'includes/footer.php' ?>
