@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     ?>
     <form method="post" action="contact.php">
-        <table>
+        <table style="width: 100%">
             <tr>
                 <th><label for="email">Email</label></th>
                 <td><input type="text" id="email" name="email" value="<?php if(isset($email)) echo $email;?>"></td>
@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <td><input type="checkbox" name="contact_me_by_fax_only" value="1" style="display: none !important" tabindex="-1" autocomplete="nah" /></td>
             </tr>
         </table>
-        <input type="submit" value="send"/>
+        <div class="submit-wrapper"><input type="submit" value="send"/></div>
     </form>
 </section>
 
