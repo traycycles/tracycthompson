@@ -15,9 +15,15 @@ include 'includes/header.php';
         learn more about developing applications.  Even after hours staring at my computer wondering why "it doesn't work," I have begun to spread
         my (not so metallic uniform) wings and solve problems. One of the great things about learning to make software is that my environment
         isn't limited to a "tin can" 33K feet in the air!</p>
-<!--    <ul id="">-->
-<!--        <li>-->
-<!--        </li>-->
-<!--    </ul>-->
+<p>
+    Having been "around the block," I think that my perspective is unique and useful in a few ways. Most recently, when talking about tech to my 75 year old mother!
+    I help her navigate websites remotely, on the phone! I am looking forward to my golden years since it seems like we will be living forever! The cool thing though,
+    is that these older desktop and mostly handheld users remember TI-35 calculators and that was the newest tech!
+    Telstar (before nintendo) was the latest thing and the Paperboy still dropped off their evening news. And these folks are PURCHASING AND LEARNING the conveniences
+    and instantaneousness that we take for granted. I think that they need to be remembered when GUI is created.... and I know for a fact, they aren't. Pity,
+    because they can create much response and revenue. If you stumble upon this page, please remember these folks, they'll love the
+    facility of your creations!
+</p>
+
 </section>
 <?php include 'includes/footer.php' ?>
