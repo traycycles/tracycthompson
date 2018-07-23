@@ -4,7 +4,7 @@ $section = 'about';
 include 'includes/header.php';
 ?>
     <section>
-        <img src="img/IMG_0743.jpg" alt="photo of Tracy Thompson" class="profile-photo">
+        <img src="public/img/IMG_0743.jpg" alt="photo of Tracy Thompson" class="profile-photo">
         <h3>About</h3>
         <p>Hi!  I'm Tracy and this is my spot. I'm beginning to get
             used to sharing my stuff that I have been working on! My many talents include breaking things... and fixing them! I break, I fix, I break, I fix. The cycle continues.
